@@ -2,6 +2,7 @@ import Content from "./Content";
 import { CoursePart } from "../types";
 
 const Part=({courseParts}:{courseParts:CoursePart[]})=>{
+  //helper function 
   const assertNever=(value:never):never=>{
     throw new Error(`unhandled discriminated union member: ${JSON.stringify(value)}`)
 

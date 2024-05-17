@@ -33,3 +33,5 @@ export default {
 
 -exhaustive type checking -can be used to handle default switch statements to handle all switch cases properly including default.
 Its basic principle is that if we encounter an unexpected value, we call a function that accepts a value with the type never and also has the return type never.
+
+-the project is also about using the deep type usage in typescript and using switch cases to handle discriminated union
