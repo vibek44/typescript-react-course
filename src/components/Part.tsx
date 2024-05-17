@@ -2,6 +2,10 @@ import Content from "./Content";
 import { CoursePart } from "../types";
 
 const Part=({courseParts}:{courseParts:CoursePart[]})=>{
+  const assertNever=(value:never):never=>{
+    throw new Error(`unhandled discriminated union member: ${JSON.stringify(value)}`)
+
+  };
   return(<div> {
     //discriminated union technique  for type narrowing
     courseParts.map((part)=>{
@@ -14,8 +18,9 @@ const Part=({courseParts}:{courseParts:CoursePart[]})=>{
         return <Content key={part.name} part={part}/>
       case 'special':
         return <Content key={part.name} part={part}/>
+      //exhautive typechecking for union type data
       default:
-        return;
+        assertNever(part);
    }
   })}
     </div>)
